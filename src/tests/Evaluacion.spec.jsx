@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import App from "../App"
 
@@ -37,8 +37,10 @@ describe("First exam Front III", ()=>{
                 userEvent.type(inputs[1], "Digital1234")
                 userEvent.click(submitButton)
 
-                const cardComponent = await screen.findByText("Just testing")
-                expect(cardComponent).toBeInTheDocument() 
+                const cardText1 = await screen.findByText("Just testing")
+                const cardText2 = await screen.findByText("Digital1234")
+                expect(cardText1).toBeInTheDocument() 
+                expect(cardText2).toBeInTheDocument() 
             })
          })
     })
