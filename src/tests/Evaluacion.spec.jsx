@@ -9,11 +9,6 @@ describe("First exam Front III", ()=>{
         })
     })
     describe("Form", ()=>{
-        it("Should render a form", ()=>{
-            render(<App/>)
-            const form = screen.getByRole("form")
-            expect(form).toBeInTheDocument()
-        })
         it("Should render at list two inputs", ()=>{
             render(<App/>)
             const inputs = screen.getAllByRole("textbox")
@@ -26,12 +21,24 @@ describe("First exam Front III", ()=>{
                 const inputs = screen.getAllByRole("textbox")
                 const submitButton = screen.getByRole('button', {type: "submit"})
                 userEvent.type(inputs[0], "Just testing")
-                userEvent.type(inputs[1], " ")
+                userEvent.type(inputs[1], "Digital123")
                 userEvent.click(submitButton)
 
-                const errorMessage = await screen.findAllByLabelText("error-message")
-                expect(errorMessage.length).toBeGreaterThan(0)
+                const errorMessage = await screen.findByText("Please check your information again")
+                expect(errorMessage).toBeInTheDocument()
+            })
+         })
+        describe('On success', () => {
+            it("Should render the card with the proper information", async ()=>{
+                render(<App/>)
+                const inputs = screen.getAllByRole("textbox")
+                const submitButton = screen.getByRole('button', {type: "submit"})
+                userEvent.type(inputs[0], "Just testing")
+                userEvent.type(inputs[1], "Digital1234")
+                userEvent.click(submitButton)
 
+                const cardComponent = await screen.findByText("Just testing")
+                expect(cardComponent).toBeInTheDocument() 
             })
          })
     })
