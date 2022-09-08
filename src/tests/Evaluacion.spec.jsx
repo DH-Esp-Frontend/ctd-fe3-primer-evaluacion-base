@@ -21,7 +21,7 @@ describe("First exam Front III", ()=>{
                 const inputs = screen.getAllByRole("textbox")
                 const submitButton = screen.getByRole('button', {type: "submit"})
                 userEvent.type(inputs[0], "Just testing")
-                userEvent.type(inputs[1], "Digital123")
+                userEvent.type(inputs[1], "")
                 userEvent.click(submitButton)
 
                 const errorMessage = await screen.findByText("Please check your information again")
