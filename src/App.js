@@ -1,23 +1,79 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+const validatePassword = (password) => {
+  const withoutSpaces = password.trim();
+
+  const passwordAsArray = withoutSpaces.split("");
+
+  const hasNumber = passwordAsArray.some((character) => {
+    if (isNaN(character)) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+  if (withoutSpaces.length > 5 && hasNumber) {
+    return true;
+  } else {
+    return false;
+  }
+ };
+
+const validateUserName = (userName) => {
+  const withoutSpaces = userName.trim();
+  if (withoutSpaces.length > 2) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+ 
+
+
 
 function App() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState(false);
+
+  const onChangeUserName = (e) => setUserName(e.target.value);
+  const onChangePassword = (e) => setPassword(e.target.value);
+
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    const isUsernameValid = validateUserName(userName);
+    const isPasswordValid = validatePassword(password);
+    
+    if (!isPasswordValid || !isUsernameValid) {
+      setErrors(true)
+    } else {
+      setErrors(false)
+    }
+  };
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Dale loco</h1>
+     <form onSubmit={onSubmitForm} aria-label="form">
+        <input
+            placeholder="Nombre de usuario"
+            value={userName}
+            onChange={onChangeUserName}
+          />
+        <input
+          placeholder="Password"
+          value={password}
+          onChange={onChangePassword}
+        />
+        <input
+          placeholder="Password"
+          value={password}
+          onChange={onChangePassword}
+        />
+        <button type="submit">like</button>
+     </form>
     </div>
   );
 }
