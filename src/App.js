@@ -47,6 +47,7 @@ function App() {
     
     if (!isPasswordValid || !isUsernameValid) {
       setErrors(true)
+      console.log("hay erro")
     } else {
       setErrors(false)
     }
@@ -67,11 +68,7 @@ function App() {
           value={password}
           onChange={onChangePassword}
         />
-        <input
-          placeholder="Password"
-          value={password}
-          onChange={onChangePassword}
-        />
+        {errors ? <p aria-label="error-message">Please check the info again</p> : null}
         <button type="submit">like</button>
      </form>
     </div>

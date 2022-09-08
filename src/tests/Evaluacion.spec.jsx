@@ -21,18 +21,16 @@ describe("First exam Front III", ()=>{
         })
 
         describe('On error', () => {
-            xit("Should show an error message", async ()=>{
+            it("Should show an error message", async ()=>{
                 render(<App/>)
-                const inputs = screen.getAllByRole("input")
+                const inputs = screen.getAllByRole("textbox")
                 const submitButton = screen.getByRole('button', {type: "submit"})
                 userEvent.type(inputs[0], "Just testing")
-                userEvent.type(inputs[1], "")
+                userEvent.type(inputs[1], " ")
                 userEvent.click(submitButton)
 
-                const errorMessage = await screen.findByRole("paragraph")
-
-
-                expect(errorMessage).toBeInTheDocument()
+                const errorMessage = await screen.findAllByLabelText("error-message")
+                expect(errorMessage.length).toBeGreaterThan(0)
 
             })
          })
