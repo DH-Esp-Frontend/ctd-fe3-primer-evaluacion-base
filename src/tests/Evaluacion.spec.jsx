@@ -25,7 +25,9 @@ describe("First exam Front III", ()=>{
                 userEvent.click(submitButton)
 
                 const errorMessage = await screen.findByText("Please check your information again")
+                const cardText1 = screen.queryByText("Just testing")
                 expect(errorMessage).toBeInTheDocument()
+                expect(cardText1).not.toBeInTheDocument() 
             })
          })
         describe('On success', () => {
@@ -36,11 +38,13 @@ describe("First exam Front III", ()=>{
                 userEvent.type(inputs[0], "Just testing")
                 userEvent.type(inputs[1], "Digital1234")
                 userEvent.click(submitButton)
-
+                
                 const cardText1 = await screen.findByText("Just testing")
                 const cardText2 = await screen.findByText("Digital1234")
+                const errorMessage = screen.queryByText("Please check your information again")
                 expect(cardText1).toBeInTheDocument() 
                 expect(cardText2).toBeInTheDocument() 
+                expect(errorMessage).not.toBeInTheDocument() 
             })
          })
     })
