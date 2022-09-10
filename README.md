@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# PRIMER ENTREGABLE - FRONT END II
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+¡Hola de nuevo!
+Hasta aquí, hemos dado nuestros primeros pasos en la creación de aplicaciones web utilizando React. Ahora, es el momento de poner en práctica todo lo aprendido, para lo cual te pediremos que lleves adelante una pequeña actividad. Veamos de qué se trata…
 
-## Available Scripts
+## Presentación de la Actividad
 
-In the project directory, you can run:
+Para este primer entregable, pondremos en práctica los conocimientos que hemos adquirido acerca de la **creación y manejo de formularios** utilizando React. Para ello, te pediremos que crees un pequeño formulario, el cual deberá permitir a cualquier persona interactuar con el mismo ingresando los datos que se solicitan. Una vez ingresados dichos datos, al hacer click en el botón de **“Enviar”**, se deberán llevar a cabo ciertas validaciones para corroborar que la información ingresada coincida con los datos esperados. Si ello es así, mostraremos en pantalla un componente que contendrá toda la información recibida. Caso contrario, deberás mostrar un mensaje de error.
 
-### `npm start`
+Como punto de partida, utilizaremos el _template_ que crearon junto al profe en la clase anterior. En caso de que no lo tengas, puedes descargarlo desde el siguiente [link](https://github.com/DH-Esp-Frontend/ctd-fe3-primer-evaluacion-base)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Instrucciones y requisitos de entrega
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La temática del formulario puede ser cualquiera de su preferencia. Pueden solicitar información sobre música, animales, libros, autos, personajes o lo que deseen.
 
-### `npm test`
+El formulario deberá contener, al menos, **dos inputs de texto y un botón de tipo “submit”**. Si lo deseas, puedes agregar más inputs para hacer más completo tu formulario, pero esto es opcional.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Al hacer click en el botón de “Enviar”, deberás realizar las siguientes validaciones:
 
-### `npm run build`
+- Para el caso del _primer input_, la **longitud mínima** del texto ingresado deberá ser de 3 caracteres y **NO** deberá contener espacios en blanco al comienzo;
+- Para el segundo input, deberás validar que contenga **al menos** al menos 6 caracteres, uno de los cuales deberá ser un número.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+En caso de que alguna de las validaciones sea incorrecta, deberas mostrar el siguiente mensaje de error: **"Please check your information again”**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+En caso de que los valores ingresados superen las validaciones en forma exitosa, deberás renderizar un componente `<Card>` que contenga dicha información. Puedes darle el estilo y/o forma que desees, en tanto y en cuanto contenga al menos los mismos valores que se hayan ingresado en el formulario.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Ejemplo
 
-### `npm run eject`
+Para que puedas orientarte mejor, te dejamos unos ejemplos de cómo deberían verse las distintas partes del entregable:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Formulario**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src='./src/assets/form.png' style='width:300px'>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **Mensaje de Error**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img src='./src/assets/error.png' style='width:300px'>
 
-## Learn More
+### **Card con los datos ingresados**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src='./src/assets/done.png' style='width:300px'>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Pasos a seguir.
 
-### Code Splitting
+Para ayudar a que puedas organizarte y realizar la entrega a tiempo, te dejamos una propuesta de flujo de trabajo. De todas maneras, puedes organizarte de la manera que creas más conveniente para lograr el objetivo buscado:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Paso 1: Crear los componentes.
 
-### Analyzing the Bundle Size
+En primer lugar, nos ocuparemos de crear nuestros componentes sin pensar en la funcionalidad. Para ello, comenzaremos agregando los dos inputs y el botón que nos permitirá enviar el formulario. Acto seguido, deberás asegurarte que tu componente <Card/> reciba la información ingresada como “props” y la muestre en la pantalla.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Paso 2: Controlar los inputs
 
-### Making a Progressive Web App
+Ahora que ya tienes todos los componentes, es momento de controlar los inputs para poder almacenar y actualizar sus valores a medida que se ingresan los datos en el formulario.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Paso 3: Agregar el event handler para el submit.
 
-### Advanced Configuration
+Una vez que sea posible ingresar valores en el formulario, el siguiente paso es poder responder al envío del formulario. Para ello, deberás crear el “event handler” necesario.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Paso 4: Validaciones.
 
-### Deployment
+Dentro del event handler, deberás ocuparte de llevar a cabo las validaciones que se solicitan en la consigna. Recuerda que en caso de que alguna de ellas no arroje un resultado satisfactorio, deberás mostrar el mensaje de error. En este caso, los datos ingresados no deberán renderizarse dentro del componente <Card/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Paso 5: Resultado final.
 
-### `npm run build` fails to minify
+Si las validaciones son exitosas, debes ocuparte de que la información ingresada aparezca dentro del componente <Card/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## SOBRE LA ENTREGA
+
+1. El trabajo deberá ser realizado en forma individual
+2. El plazo máximo de entrega será la hora de finalización de la clase.
+3. Consulta en la consigna de la mesa de trabajo o a tu profe de que manera debes hacer la entrega
