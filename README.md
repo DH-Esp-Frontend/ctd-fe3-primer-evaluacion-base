@@ -68,4 +68,8 @@ Si las validaciones son exitosas, debes ocuparte de que la información ingresad
 
 1. El trabajo deberá ser realizado en forma individual
 2. El plazo máximo de entrega será la hora de finalización de la clase.
-3. Consulta en la consigna de la mesa de trabajo o a tu profe de que manera debes hacer la entrega
+3. Puedes comprobar si cumples con los requisitos de entrega corriendo el comando `npm test` parado desde el directorio root 
+
+   **Nota:** _El funcionamiento de los test es solamente de guia para ustedes estudiantes y a su vez para facilitar la correccion. Si no cumples con todos los      test no necesariamente signica que tienes desaprobado la evaluacion, se pasará a evaluar cada caso de manera particular._
+5. En caso de que modifiques el archivo de tests el examen quedará invalidado automaticamente
+4. Consulta en la consigna de la mesa de trabajo o a tu profe de que manera debes hacer la entrega
